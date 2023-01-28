@@ -437,6 +437,8 @@ def parse_actions(data):
 
 
 def set_df_tz(df, interval, tz):
+    if not isinstance(df.index, _pd.DatetimeIndex):
+        df.index = _pd.to_datetime(df.index, utc=True)
     if df.index.tz is None:
         df.index = df.index.tz_localize("UTC")
     df.index = df.index.tz_convert(tz)

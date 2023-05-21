@@ -1,0 +1,14 @@
+import yfinance as yf
+
+# शेयर का सिंबल
+ticker = 'NIFTY50'
+
+# डेटा की अवधि
+start_date = '2022-01-01'
+end_date = '2022-12-31'
+
+# डेटा डाउनलोड करें
+data = yf.download(ticker, start=start_date, end=end_date)
+
+# डेटा की प्रिंट करें
+print(data)
